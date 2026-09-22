@@ -2,7 +2,8 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Experience from '@/components/Experience';
 import Projects from '@/components/Projects';
-import Skills from '@/components/Skills';
+import Lab from '@/components/Lab';
+import Stack from '@/components/Stack';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
@@ -14,7 +15,8 @@ export default function Home() {
         <Hero />
         <Experience />
         <Projects />
-        <Skills />
+        <Lab />
+        <Stack />
         <Contact />
       </main>
       <Footer />
