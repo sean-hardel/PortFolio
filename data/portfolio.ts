@@ -177,13 +177,13 @@ export const portfolioData: Portfolio = {
       title: 'Violet’s Bookshop',
       tag: 'client',
       context: 'Librairie-café à Saumur · en ligne',
-      description: 'Site vitrine et e-commerce d’une librairie-café indépendante. Démarré en groupe pendant la licence, puis repris et poursuivi seul après la formation.',
+      description: 'Site vitrine d’une librairie-café indépendante. Démarré en groupe pendant la licence, puis repris et poursuivi seul après la formation.',
       highlights: [
         'Site en production pour une vraie commerçante',
-        'Boutique WooCommerce et contenus éditables par la cliente',
-        'Prochaine étape : click-and-collect relié au logiciel d’inventaire Librisoft',
+        'Contenus éditables en autonomie par la cliente',
+        'Prochaines étapes : boutique en ligne et click-and-collect reliés au logiciel d’inventaire Librisoft',
       ],
-      stack: ['WordPress', 'WooCommerce', 'PHP', 'CSS'],
+      stack: ['WordPress', 'PHP', 'CSS'],
       image: '/assets/img/violets-bookshop.webp',
       link: 'https://www.violetsbookshop.fr/',
       repo: null,
@@ -300,7 +300,7 @@ export const portfolioData: Portfolio = {
   stack: [
     { label: 'Front', items: ['Vue 3', 'React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'GSAP', 'Figma'] },
     { label: 'Back & données', items: ['PHP', 'Symfony', 'C#', 'Node.js', 'Fastify', 'Supabase', 'PostgreSQL', 'SQL Server', 'MySQL'] },
-    { label: 'CMS', items: ['WordPress', 'WooCommerce'] },
+    { label: 'CMS', items: ['WordPress'] },
     { label: 'Outils', items: ['Git', 'GitHub', 'GitHub Actions', 'Docker', 'Linux', 'Python', 'Claude Code'] },
   ],
 
