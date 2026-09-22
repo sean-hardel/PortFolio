@@ -16,8 +16,8 @@ export default function Contact() {
           <div>
             <h3 className="text-2xl font-bold text-white mb-4">Parlons de votre projet</h3>
             <p className="text-slate-400 mb-8 leading-relaxed">
-              Je suis actuellement à la recherche d'un <strong className="text-white">stage de 3 mois minimum</strong> (Avril - Août 2026).
-              N'hésitez pas à me contacter si mon profil vous intéresse !
+              Je suis actuellement à la recherche d’un <strong className="text-white">stage de 3 mois minimum</strong> (Avril - Août 2026).
+              N’hésitez pas à me contacter si mon profil vous intéresse !
             </p>
 
             <div className="space-y-6">

@@ -32,7 +32,7 @@ export default function Skills() {
               {cat.label}
             </h3>
             <div className="flex flex-wrap gap-3">
-              {(portfolioData.skills as any)[cat.key]?.map((skill: string) => (
+              {portfolioData.skills[cat.key as keyof typeof portfolioData.skills]?.map((skill: string) => (
                 <div key={skill} className="group relative">
                   <div className={`absolute -inset-0.5 bg-gradient-to-r ${getCategoryColor(cat.key)} rounded-lg opacity-20 group-hover:opacity-75 blur transition duration-200`}></div>
                   <span className="relative block px-4 py-2 bg-slate-900 rounded-lg text-slate-300 font-medium text-sm group-hover:text-white transition-colors">

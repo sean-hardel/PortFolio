@@ -91,19 +91,19 @@ export default function Hero() {
               </div>
               <div className="flex">
                 <span className="text-slate-600 mr-4 select-none">3</span>
-                <span className="pl-8"><span className="text-blue-400">this</span>.name = <span className="text-green-400">"{portfolioData.personal.name}"</span>;</span>
+                <span className="pl-8"><span className="text-blue-400">this</span>.name = <span className="text-green-400">&quot;{portfolioData.personal.name}&quot;</span>;</span>
               </div>
               <div className="flex">
                 <span className="text-slate-600 mr-4 select-none">4</span>
-                <span className="pl-8"><span className="text-blue-400">this</span>.role = <span className="text-green-400">"{portfolioData.personal.role}"</span>;</span>
+                <span className="pl-8"><span className="text-blue-400">this</span>.role = <span className="text-green-400">&quot;{portfolioData.personal.role}&quot;</span>;</span>
               </div>
               <div className="flex">
                 <span className="text-slate-600 mr-4 select-none">5</span>
-                <span className="pl-8"><span className="text-blue-400">this</span>.stack = [<span className="text-green-400">"Next.js"</span>, <span className="text-green-400">"React"</span>, <span className="text-green-400">"Symfony"</span>];</span>
+                <span className="pl-8"><span className="text-blue-400">this</span>.stack = [<span className="text-green-400">&quot;Next.js&quot;</span>, <span className="text-green-400">&quot;React&quot;</span>, <span className="text-green-400">&quot;Symfony&quot;</span>];</span>
               </div>
               <div className="flex">
                 <span className="text-slate-600 mr-4 select-none">6</span>
-                <span className="pl-8"><span className="text-blue-400">this</span>.status = <span className="text-green-400">"Open for Internship"</span>;</span>
+                <span className="pl-8"><span className="text-blue-400">this</span>.status = <span className="text-green-400">&quot;Open for Internship&quot;</span>;</span>
               </div>
               <div className="flex">
                 <span className="text-slate-600 mr-4 select-none">7</span>

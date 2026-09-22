@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Home, ArrowLeft } from 'lucide-react';
+import { Home } from 'lucide-react';
 
 export default function NotFound() {
   return (
@@ -23,8 +23,8 @@ export default function NotFound() {
               Oups ! Vous semblez vous être égaré.
             </h2>
             <p className="text-slate-500 mb-8 max-w-md mx-auto">
-              La page que vous recherchez n'existe pas ou a été déplacée. 
-              Pas d'inquiétude, le chemin du retour est juste ici.
+              La page que vous recherchez n’existe pas ou a été déplacée. 
+              Pas d’inquiétude, le chemin du retour est juste ici.
             </p>
             
             <Link 
@@ -32,7 +32,7 @@ export default function NotFound() {
               className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-all group"
             >
               <Home size={18} />
-              Retourner à l'accueil
+              Retourner à l’accueil
             </Link>
           </div>
         </motion.div>
