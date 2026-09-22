@@ -16,7 +16,7 @@ export default function Contact() {
   const facts = [
     { label: 'Localisation', value: personal.location },
     { label: 'Langues', value: personal.languages.join(' · ') },
-    { label: 'Centres d’intérêt', value: interests.join(' · ') },
+    { label: 'Centres d’intérêt', value: interests.join('\u00a0· ') },
   ];
 
   return (
