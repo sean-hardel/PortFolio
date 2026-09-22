@@ -1,70 +1,74 @@
-# Portfolio - Sean Hardel
+# Portfolio · Sean Hardel
 
-![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?style=for-the-badge&logo=tailwind-css)
-![Framer Motion](https://img.shields.io/badge/Framer_Motion-Latest-purple?style=for-the-badge&logo=framer)
+[![CI](https://github.com/sean-hardel/PortFolio/actions/workflows/ci.yml/badge.svg?branch=develop)](https://github.com/sean-hardel/PortFolio/actions/workflows/ci.yml)
+[![Deploy](https://github.com/sean-hardel/PortFolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/sean-hardel/PortFolio/actions/workflows/deploy.yml)
 
-Bienvenue sur le dépôt de mon portfolio professionnel 2026. Ce projet a été entièrement refondu pour démontrer mes compétences en développement web moderne, notamment sur l'écosystème React/Next.js.
+Portfolio de développeur full stack : **[sean-hardel.github.io/PortFolio](https://sean-hardel.github.io/PortFolio/)**
 
-👉 **[Voir le site en ligne](https://hardelsean.github.io/portfolio/)**
+Un site statique volontairement simple, traité comme un vrai projet : workflow Git, intégration continue, déploiement automatique, image Docker et CV généré depuis les mêmes données que le site.
 
-## 🚀 Fonctionnalités
+## Ce qu'il y a dedans
 
-- **Design Moderne & Responsive** : Interface "Dark Mode" épurée, adaptée à tous les écrans.
-- **Animations Fluides** : Utilisation de `framer-motion` pour des transitions douces au défilement.
-- **Architecture Scalable** : Séparation stricte des données (`data/`) et de l'UI (`components/`).
-- **Performance** : Optimisé avec Next.js (App Router) et Tailwind CSS v4.
-- **Type-Safe** : Codebase 100% TypeScript pour une robustesse maximale.
+- **Contenu centralisé** : tout le texte vit dans [`data/portfolio.ts`](data/portfolio.ts), typé. Le site, le terminal et le CV le lisent.
+- **Mini terminal** dans le hero (`help`, `whoami`, `projects`, `neofetch`…) : historique, autocomplétion, accessible au clavier.
+- **Thème clair / sombre** : suit le système par défaut, le choix est mémorisé.
+- **CV** : une page A4 imprimable (`/cv/`) et un PDF généré automatiquement en CI.
+- **Accessibilité et performance** vérifiées par Lighthouse CI à chaque PR.
 
-## 🛠️ Stack Technique
+## Stack
 
-- **Framework** : [Next.js 16](https://nextjs.org/) (App Router)
-- **Langage** : [TypeScript](https://www.typescriptlang.org/)
-- **Style** : [Tailwind CSS v4](https://tailwindcss.com/)
-- **Animations** : [Framer Motion](https://www.framer.com/motion/)
-- **Icônes** : [Lucide React](https://lucide.dev/)
-- **Déploiement** : GitHub Pages (Static Export)
+| | |
+|---|---|
+| Framework | Next.js 16 (App Router, export statique), React 19, TypeScript |
+| Style | Tailwind CSS 4, design tokens en variables CSS |
+| Qualité | ESLint, `tsc`, Lighthouse CI, `npm audit`, Dependabot |
+| CV | Playwright (impression de `/cv/` en PDF) |
+| Déploiement | GitHub Actions → GitHub Pages |
+| Auto-hébergement | Docker multi-stage, nginx non-root avec en-têtes de sécurité |
 
-## 📂 Structure du Projet
-
-```bash
-├── app/                # Pages et Layouts (Next.js App Router)
-├── components/         # Composants Réutilisables (Hero, Projects, Navbar...)
-├── data/               # Données du site (C'est ici qu'on modifie le contenu !)
-│   └── portfolio.ts    # Fichier unique contenant tout le texte et les liens
-├── public/             # Images et fichiers statiques
-```
-
-## 💻 Installation & Développement
-
-Pour lancer ce projet localement :
-
-1.  **Cloner le dépôt**
-    ```bash
-    git clone https://github.com/hardelsean/portfolio.git
-    cd portfolio
-    ```
-
-2.  **Installer les dépendances**
-    ```bash
-    npm install
-    ```
-
-3.  **Lancer le serveur de développement**
-    ```bash
-    npm run dev
-    ```
-    Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur.
-
-## 📦 Déploiement (GitHub Pages)
-
-Le projet est configuré pour générer un site statique (`output: 'export'`).
+## Développer
 
 ```bash
-# Générer le build statique dans le dossier 'out/'
-npm run build
+npm install
+npm run dev          # http://localhost:3000
+npm run lint
+npm run typecheck
+npm run build        # export statique dans out/
+npm run cv:pdf       # après build : génère out/cv-sean-hardel.pdf (1 page max)
 ```
 
----
-*Développé par Sean Hardel - 2026*
+Pour modifier le contenu, il suffit d'éditer [`data/portfolio.ts`](data/portfolio.ts).
+
+## Structure
+
+```
+app/            pages (accueil, /cv, 404), métadonnées, sitemap, robots
+components/     sections du site (Hero, Terminal, Experience, Projects…)
+data/           contenu du site et liste des sections
+lib/            commandes du terminal, thème, chemins, constantes du site
+scripts/        génération du PDF du CV
+docker/         configuration nginx et en-têtes de sécurité
+```
+
+## Workflow Git
+
+- `main` : production, protégée, déployée automatiquement
+- `develop` : intégration, protégée
+- une issue par tâche, une branche par issue (`feat/7-hero-terminal`, `ci/12-deploy-pages`…), une PR vers `develop`
+- commits au format [Conventional Commits](https://www.conventionalcommits.org/fr/) (`feat:`, `fix:`, `ci:`, `docs:`…)
+- release : PR `develop` → `main`, puis tag
+
+La CI (lint, typecheck, build, audit) est obligatoire pour merger. Un second job vérifie que le CV tient sur une page et lance Lighthouse sur `/` et `/cv/`.
+
+## Docker
+
+L'image construit le site (et le PDF du CV) puis le sert avec nginx à la racine :
+
+```bash
+docker build -t portfolio .
+docker run --rm -p 8080:8080 portfolio   # http://localhost:8080
+```
+
+nginx tourne sans root et ajoute CSP, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy` et HSTS (voir [`docker/security-headers.conf`](docker/security-headers.conf)).
+
+L'ancienne version du site est conservée sur la branche [`legacy/v1`](https://github.com/sean-hardel/PortFolio/tree/legacy/v1) (tag `v1.0.0`).
