@@ -158,7 +158,7 @@ export default function CV() {
 
             <section>
               <Heading>Centres d’intérêt</Heading>
-              <p className="text-neutral-700">{interests.join(' · ')}</p>
+              <p className="text-neutral-700">{interests.join('\u00a0· ')}</p>
             </section>
           </aside>
         </div>
