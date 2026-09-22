@@ -3,10 +3,12 @@ import Link from 'next/link';
 import { ArrowLeft, Download } from 'lucide-react';
 import { portfolioData } from '@/data/portfolio';
 import { CV_PDF_PATH, withBase } from '@/lib/paths';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'CV · Sean Hardel',
+  title: 'CV',
   description: 'CV de Sean Hardel, développeur full stack.',
+  alternates: { canonical: `${SITE_URL}/cv/` },
 };
 
 function Heading({ children }: { children: React.ReactNode }) {
