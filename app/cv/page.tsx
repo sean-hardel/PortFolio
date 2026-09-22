@@ -1,10 +1,10 @@
 'use client';
 
 import { portfolioData } from '@/data/portfolio';
-import { Mail, Phone, MapPin, Github, Linkedin, Globe, ExternalLink, Download } from 'lucide-react';
+import { Mail, MapPin, Github, Linkedin, Globe, ExternalLink, Download } from 'lucide-react';
 
 export default function CV() {
-  const { personal, education, experience, projects, skills } = portfolioData;
+  const { personal, education, experience, projects, stack } = portfolioData;
 
   const handlePrint = () => {
     window.print();
@@ -42,20 +42,16 @@ export default function CV() {
               <a href={`mailto:${personal.email}`} className="hover:text-white transition-colors">{personal.email}</a>
             </div>
             <div className="flex items-center gap-3">
-              <Phone size={16} className="shrink-0 text-blue-400" />
-              <span>{personal.phone}</span>
-            </div>
-            <div className="flex items-center gap-3">
               <MapPin size={16} className="shrink-0 text-blue-400" />
               <span>{personal.location}</span>
             </div>
             <div className="flex items-center gap-3">
               <Globe size={16} className="shrink-0 text-blue-400" />
-              <a href="https://hardelsean.github.io/PortFolio" target="_blank" className="hover:text-white transition-colors">hardelsean.github.io</a>
+              <a href={personal.social.site} target="_blank" className="hover:text-white transition-colors">sean-hardel.github.io</a>
             </div>
             <div className="flex items-center gap-3">
               <Github size={16} className="shrink-0 text-blue-400" />
-              <a href={personal.social.github} target="_blank" className="hover:text-white transition-colors">github.com/hardelsean</a>
+              <a href={personal.social.github} target="_blank" className="hover:text-white transition-colors">github.com/sean-hardel</a>
             </div>
             <div className="flex items-center gap-3">
               <Linkedin size={16} className="shrink-0 text-blue-400" />
@@ -68,32 +64,16 @@ export default function CV() {
             <h3 className="text-white font-bold uppercase tracking-wider mb-4 border-b border-slate-700 pb-2">Compétences</h3>
             
             <div className="space-y-4">
-              <div>
-                <h4 className="text-blue-400 font-medium mb-2 text-sm">Frontend</h4>
-                <div className="flex flex-wrap gap-2">
-                  {skills.frontend.map(skill => (
-                    <span key={skill} className="px-2 py-1 bg-slate-800 text-xs rounded text-slate-300 print:bg-slate-800 print:text-slate-300" style={{ backgroundColor: '#1e293b', color: '#cbd5e1' }}>{skill}</span>
-                  ))}
+              {stack.map(group => (
+                <div key={group.label}>
+                  <h4 className="text-blue-400 font-medium mb-2 text-sm">{group.label}</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {group.items.map(skill => (
+                      <span key={skill} className="px-2 py-1 bg-slate-800 text-xs rounded text-slate-300" style={{ backgroundColor: '#1e293b', color: '#cbd5e1' }}>{skill}</span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              
-              <div>
-                <h4 className="text-blue-400 font-medium mb-2 text-sm">Backend</h4>
-                <div className="flex flex-wrap gap-2">
-                  {skills.backend.map(skill => (
-                    <span key={skill} className="px-2 py-1 bg-slate-800 text-xs rounded text-slate-300 print:bg-slate-800 print:text-slate-300" style={{ backgroundColor: '#1e293b', color: '#cbd5e1' }}>{skill}</span>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h4 className="text-blue-400 font-medium mb-2 text-sm">Outils</h4>
-                <div className="flex flex-wrap gap-2">
-                  {skills.tools.map(skill => (
-                    <span key={skill} className="px-2 py-1 bg-slate-800 text-xs rounded text-slate-300 print:bg-slate-800 print:text-slate-300" style={{ backgroundColor: '#1e293b', color: '#cbd5e1' }}>{skill}</span>
-                  ))}
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
@@ -135,7 +115,7 @@ export default function CV() {
                     <span className="text-xs font-medium text-slate-500 bg-slate-100 px-2 py-0.5 rounded print:bg-slate-100" style={{ backgroundColor: '#f1f5f9' }}>{exp.period}</span>
                   </div>
                   <p className="text-blue-600 font-medium text-sm mb-2">{exp.company}</p>
-                  <p className="text-slate-600 text-sm mb-2">{exp.description}</p>
+                  <p className="text-slate-600 text-sm mb-2">{exp.summary}</p>
                   <ul className="list-disc list-outside ml-4 text-xs text-slate-500 space-y-1">
                     {exp.tasks.map((task, i) => (
                       <li key={i}>{task}</li>
@@ -150,14 +130,14 @@ export default function CV() {
           <section>
             <h3 className="text-slate-900 font-bold uppercase tracking-wider mb-6 border-b-2 border-blue-600 pb-1 inline-block">Projets Récents</h3>
             <div className="space-y-5">
-              {projects.slice(0, 4).map((project, index) => (
+              {projects.filter(p => !p.archived).slice(0, 4).map((project, index) => (
                 <div key={index}>
                   <div className="flex justify-between items-center mb-1">
                     <h4 className="font-bold text-slate-800 text-sm flex items-center gap-2">
                       {project.title}
                       {project.link && <a href={project.link} target="_blank" className="text-blue-500 hover:text-blue-700 print:hidden"><ExternalLink size={12}/></a>}
                     </h4>
-                    <span className="text-[10px] text-slate-400 border border-slate-200 px-1.5 rounded">{project.category}</span>
+                    <span className="text-[10px] text-slate-400 border border-slate-200 px-1.5 rounded">{project.context}</span>
                   </div>
                   <p className="text-slate-600 text-xs mb-2">{project.description}</p>
                   <div className="flex flex-wrap gap-1">

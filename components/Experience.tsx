@@ -46,7 +46,7 @@ export default function Experience() {
                             </div>
                             <span className="text-xs font-mono bg-slate-700 text-slate-300 px-2 py-1 rounded">{job.period}</span>
                         </div>
-                        <p className="text-slate-400 text-sm mb-4 italic">{job.description}</p>
+                        <p className="text-slate-400 text-sm mb-4 italic">{job.summary}</p>
                         <ul className="space-y-2 mb-4">
                             {job.tasks.map((task, i) => (
                                 <li key={i} className="text-slate-300 text-sm flex items-start gap-2">

@@ -2,7 +2,7 @@
 
 import Section from './Section';
 import { portfolioData } from '@/data/portfolio';
-import { Mail, Phone, MapPin, Github, Linkedin, CheckCircle } from 'lucide-react';
+import { Mail, MapPin, Github, Linkedin, CheckCircle } from 'lucide-react';
 
 export default function Contact() {
   return (
@@ -31,15 +31,6 @@ export default function Contact() {
                 </div>
               </a>
               
-              <div className="flex items-center gap-4 text-slate-300">
-                <div className="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center">
-                  <Phone size={20} />
-                </div>
-                <div>
-                  <p className="text-xs text-slate-500">Téléphone</p>
-                  <p className="font-medium">{portfolioData.personal.phone}</p>
-                </div>
-              </div>
 
               <div className="flex items-center gap-4 text-slate-300">
                 <div className="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center">
@@ -68,7 +59,7 @@ export default function Contact() {
                     <CheckCircle size={32} className="text-emerald-500" />
                 </div>
                 <h4 className="text-xl font-bold text-white mb-2">Disponible</h4>
-                <p className="text-slate-400 mb-6">{portfolioData.personal.availability}</p>
+                <p className="text-slate-400 mb-6">{portfolioData.status.label}</p>
                 <p className="text-sm text-slate-500 max-w-xs">
                     Je suis mobile sur La Rochelle et ses environs, et ouvert au télétravail.
                 </p>
