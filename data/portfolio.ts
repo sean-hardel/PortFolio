@@ -325,5 +325,5 @@ export const portfolioData: Portfolio = {
     },
   ],
 
-  interests: ['Rétro-gaming', 'Hardware PC', 'Homelab', 'Cybersécurité', 'OSINT'],
+  interests: ['IA', 'Cybersécurité', 'Linux & open source', 'Vie privée numérique', 'Homelab', 'OSINT', 'Veille tech', 'Hardware PC', 'Gaming'],
 };
