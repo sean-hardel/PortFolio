@@ -51,15 +51,15 @@ export default function CV() {
           <h1 className="text-[26px] font-semibold tracking-tight text-neutral-950">{personal.name}</h1>
           <p className="mt-0.5 text-[13px] font-medium text-[#13703f]">{personal.role}</p>
           <p className="mt-2 max-w-[150mm] text-neutral-600">{personal.bio}</p>
-          <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1 font-mono text-[9px] text-neutral-600">
+          <ul className="mt-2 flex flex-wrap gap-x-4 font-mono text-[9px] text-neutral-600">
             {contacts.map((contact) => (
               <li key={contact.href}>
-                <a href={contact.href} className="hover:text-neutral-950">
+                <a href={contact.href} className="inline-block py-1.5 hover:text-neutral-950 print:py-0">
                   {contact.label}
                 </a>
               </li>
             ))}
-            <li>{personal.location}</li>
+            <li className="py-1.5 print:py-0">{personal.location}</li>
           </ul>
         </header>
 
