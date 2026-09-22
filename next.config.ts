@@ -12,6 +12,8 @@ const nextConfig: NextConfig = {
   assetPrefix: isProd ? `/${repoName}/` : '',
   env: {
     BASE_PATH: isProd ? `/${repoName}` : '',
+    COMMIT_SHA: (process.env.GITHUB_SHA ?? 'local').slice(0, 7),
+    BUILD_DATE: new Date().toISOString().slice(0, 10),
   },
 };
 
