@@ -38,7 +38,7 @@ export default function Projects() {
                 </div>
               ) : (
                 <div className="w-full h-full flex items-center justify-center bg-slate-800 group-hover:bg-slate-750 transition-colors">
-                    <span className="text-6xl">{project.emoji || <Folder size={64} className="text-slate-600" />}</span>
+                    <span className="text-6xl"><Folder size={64} className="text-slate-600" /></span>
                     <div className="absolute inset-0 bg-slate-900/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
                         {project.repo && (
                             <a href={project.repo} target="_blank" className="p-2 bg-slate-900 text-white border border-slate-700 rounded-full hover:bg-slate-800 transition-colors">
@@ -49,7 +49,7 @@ export default function Projects() {
                 </div>
               )}
               <div className="absolute top-4 right-4 bg-slate-900/80 backdrop-blur px-3 py-1 rounded-full text-xs font-medium text-white border border-slate-700">
-                {project.category}
+                {project.context}
               </div>
             </div>
 
