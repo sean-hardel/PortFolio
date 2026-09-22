@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 export default function Projects() {
   return (
-    <Section id="projects" title="Projets" subtitle="Réalisations académiques et personnelles" className="bg-slate-900">
+    <Section id="projects" title="Projets" lead="Réalisations académiques et personnelles" className="bg-slate-900">
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {portfolioData.projects.map((project, index) => (
           <div key={index} className="group bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 flex flex-col h-full">
