@@ -2,6 +2,19 @@
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
+/* CV : mise en page A4 sur grand écran et à l'impression (PDF), lecture fluide sur mobile */
+@custom-variant a4 {
+  @media screen and (min-width: 52rem) {
+    @slot;
+  }
+  @media print {
+    @slot;
+  }
+}
+
+/* CV : décor réservé à l'écran d'ordinateur (fond gris, ombre) */
+@custom-variant desk (@media screen and (min-width: 52rem));
+
 /* ----------------------------------------------------------------------------
    Design tokens
    Thème sombre par défaut, thème clair via prefers-color-scheme ou data-theme.
