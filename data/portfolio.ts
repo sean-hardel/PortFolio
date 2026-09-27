@@ -55,6 +55,8 @@ export interface Project {
   link: string | null;
   repo: string | null;
   archived: boolean;
+  /** Affiche un projet perso sur le CV */
+  cv?: boolean;
 }
 
 export interface LabItem {
@@ -173,6 +175,25 @@ export const portfolioData: Portfolio = {
   ],
 
   projects: [
+    {
+      title: 'FROST/BYTE',
+      tag: 'perso',
+      context: 'Projet personnel · en ligne',
+      description: 'Marque fictive de boisson énergisante, du modèle 3D au site en ligne : canette modélisée dans Blender, landing page animée au scroll et trailer vidéo.',
+      highlights: [
+        'Modèle 3D de la canette généré par scripts Python dans Blender, piloté via MCP : reproductible comme de l’infrastructure as code',
+        'Landing page Three.js + GSAP ScrollTrigger : canette animée au scroll, condensation, particules, 3 saveurs',
+        'Trailer Remotion en 16:9 et 9:16, plans rendus en Cycles sur GPU, son calé à 120 BPM',
+        'CI GitHub Actions : typecheck, build, Lighthouse CI bloquant sous 90 (scores de 92 à 100 en mobile et desktop), déploiement sur GitHub Pages',
+        'Développé avec Claude Code',
+      ],
+      stack: ['Blender', 'Python', 'Three.js', 'GSAP', 'TypeScript', 'Vite', 'Remotion', 'GitHub Actions', 'Lighthouse CI'],
+      image: '/assets/img/frostbyte.webp',
+      link: 'https://sean-hardel.github.io/frostbyte/',
+      repo: 'https://github.com/sean-hardel/frostbyte',
+      archived: false,
+      cv: true,
+    },
     {
       title: 'Violet’s Bookshop',
       tag: 'client',
