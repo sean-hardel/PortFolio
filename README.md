@@ -72,3 +72,9 @@ docker run --rm -p 8080:8080 portfolio   # http://localhost:8080
 nginx tourne sans root et ajoute CSP, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy` et HSTS (voir [`docker/security-headers.conf`](docker/security-headers.conf)).
 
 L'ancienne version du site est conservée sur la branche [`legacy/v1`](https://github.com/sean-hardel/PortFolio/tree/legacy/v1) (tag `v1.0.0`).
+
+## Licence
+
+Le code est sous licence [MIT](LICENSE) : tu peux t'en inspirer et le réutiliser librement.
+
+Le contenu personnel n'est pas couvert par cette licence et reste **tous droits réservés** : les textes (contenu de [`data/portfolio.ts`](data/portfolio.ts)), le CV (page `/cv/` et PDF), la photo et les visuels des projets ([`public/assets/img/`](public/assets/img/), image de partage). Pour construire ton propre portfolio à partir de ce dépôt, remplace-les par les tiens.
