@@ -97,7 +97,7 @@ export default function CV() {
               <Heading>Projets</Heading>
               <div className="space-y-5 a4:space-y-2.5">
                 {projects
-                  .filter((project) => !project.archived && project.tag !== 'perso')
+                  .filter((project) => !project.archived && (project.tag !== 'perso' || project.cv))
                   .map((project) => (
                     <article key={project.title}>
                       <h3 className="font-semibold text-neutral-950">
